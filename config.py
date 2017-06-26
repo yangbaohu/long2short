@@ -16,5 +16,5 @@ SQLALCHEMY_COMMIT_ON_TEARDOWN = True
 REDIS_URL = 'redis://localhost:6379/0'
 
 # 自有配置
-LOCALHOST = 'http://127.0.0.1:5000/'
+LOCALHOST = 'http://127.0.0.1:5000/'  # 返回短链接前缀
 EXPIRE_TIME = 60 * 60 * 24 * 7
