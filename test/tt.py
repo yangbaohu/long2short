@@ -15,8 +15,7 @@ def long2short_post(long_url, url_type='s'):
         'long_url': long_url,
         'url_type': url_type
     }
-    content = requests.post(url, json=data).content
-    return json.loads(content)
+    return requests.post(url, json=data).json()
 
 
 def long2short_get(long_url, url_type='s'):
@@ -30,14 +29,12 @@ def short2long_post(short_url):
     data = {
         'short_url': short_url
     }
-    content = requests.post(url, json=data).content
-    return json.loads(content)
+    return requests.post(url, json=data).json()
 
 
 def short2long_get(short_url):
     url = 'http://127.0.0.1:5000/short2long?short_url=%s' % short_url
-    content = requests.get(url).content
-    return json.loads(content)
+    return requests.get(url).content
 
 
 if __name__ == '__main__':
