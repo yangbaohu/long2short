@@ -30,8 +30,10 @@ EXPIRE_TIME = app.config['EXPIRE_TIME']
 
 
 def update_cache(short_url, long_url, expire_time=EXPIRE_TIME):
+    pipe = cache.pipeline(transaction=True)
     cache.set(''.join(['short2long', ':', short_url]), long_url, ex=expire_time)
     cache.set(''.join(['long2short', ':', long_url]), short_url, ex=expire_time)
+    pipe.execute()
 
 
 class Url(db.Model):
