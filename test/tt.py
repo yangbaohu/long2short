@@ -57,6 +57,6 @@ if __name__ == '__main__':
     for i in range(1):
         for j, url in enumerate(urls):
             _type = 's' if j % 2 else 'l'
-            print _type
-            print long2short_post(url, _type)
-    print 'end!'
+            print(_type)
+            print(long2short_post(url, _type))
+    print('end!')

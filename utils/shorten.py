@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
+
 
 '''
 Short URL Generator
@@ -74,7 +74,7 @@ class UrlEncoder(object):
         self.alphabet = alphabet
         self.block_size = block_size
         self.mask = (1 << block_size) - 1
-        self.mapping = range(block_size)
+        self.mapping = list(range(block_size))
         self.mapping.reverse()
 
     def encode_url(self, n, min_length=MIN_LENGTH):
@@ -158,4 +158,4 @@ if __name__ == '__main__':
         assert a == e
         assert b == d
         c = (' ' * (7 - len(c))) + c
-        print '%6d %12d %s %12d %6d' % (a, b, c, d, e)
+        print('%6d %12d %s %12d %6d' % (a, b, c, d, e))

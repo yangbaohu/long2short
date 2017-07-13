@@ -7,11 +7,15 @@ Created on 2017/6/10.
 
 import re
 import json
-from urllib import quote, unquote
-from urlparse import urlparse
 from datetime import datetime
 
-from flask import Flask, redirect, jsonify, request, abort, render_template, url_for
+try:
+    from urllib import quote, unquote
+    from urlparse import urlparse
+except ImportError:
+    from urllib.parse import quote, unquote, urlparse
+
+from flask import Flask, redirect, jsonify, request, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_redis import FlaskRedis
 from flask_restful import Api, Resource
