@@ -16,6 +16,7 @@ except ImportError:
     from urllib.parse import quote, unquote, urlparse
 
 from flask import Flask, redirect, jsonify, request, abort
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_redis import FlaskRedis
 from flask_restful import Api, Resource
@@ -25,6 +26,7 @@ from utils import DEFAULT_ENCODER
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
 
+CORS(app)
 db = SQLAlchemy(app)
 api = Api(app)
 cache = FlaskRedis(app)
