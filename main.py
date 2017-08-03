@@ -48,7 +48,7 @@ class Url(db.Model):
     long_url = db.Column(db.String(512))
     short_url = db.Column(db.String(50))
     url_type = db.Column(db.String(1))
-    create_time = db.Column(db.DateTime, default=datetime.now())
+    create_time = db.Column(db.DateTime, default=datetime.now)
 
     def __repr__(self):
         return '<Url %r>' % self.id
